@@ -44,7 +44,7 @@ class Mtag extends StatelessWidget {
             ),
             Text(
               lable,
-              style: TextStyle(fontSize: 20, color: color),
+              style: TextStyle(fontSize: 15, color: color),
             ),
           ],
         ),
