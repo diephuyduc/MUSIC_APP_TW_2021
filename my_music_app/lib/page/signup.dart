@@ -14,52 +14,57 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            mTextfied(
-              "Tên hiển thị",
-              Icons.email,
-              _email,
+      body: SafeArea(
+              child: Container(
+          child: SingleChildScrollView(
+                      child: Column(
+              
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+               Container(
+                  height: 200,
+                  width: 200,
+                  child: Image.asset("assets/music.gif"),
+                ),
+                Text("Đăng ký tài khoản", style: TextStyle(fontSize: 30),),
+                mTextfied(
+                  "Email",
+                  Icons.email,
+                  _email,
+                ),
+                mTextfied(
+                  "Mật khẩu",
+                  Icons.lock,
+                  _password,
+                ),
+                mButton("Đăng ký", () async {
+                  String resl = await AuthenticationService()
+                      .signUp(email: _email.text, password: _password.text);
+                  if (resl == "Signed In") {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyHomePage(),
+                        ));
+                  }
+                }),
+                SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  child: Text("Đăng nhập"),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ),
+                        (route) => false);
+                  },
+                ),
+              ],
             ),
-            mTextfied(
-              "Email",
-              Icons.email,
-              _email,
-            ),
-            mTextfied(
-              "Mật khẩu",
-              Icons.lock,
-              _password,
-            ),
-            mButton("Đăng ký", () async {
-              String resl = await AuthenticationService()
-                  .signUp(email: _email.text, password: _password.text);
-              if (resl == "Signed In") {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyHomePage(),
-                    ));
-              }
-            }),
-            SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              child: Text("Đăng nhập"),
-              onTap: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Login(),
-                    ),
-                    (route) => false);
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -67,11 +72,19 @@ class _SignUpState extends State<SignUp> {
 
   mTextfied(String lable, IconData icon,
       TextEditingController textEditingController) {
-    return TextField(
-      controller: textEditingController,
-      decoration: InputDecoration(
-        prefixIcon: Icon(icon),
-        hintText: lable,
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 30, 10, 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+         border: Border.all(color: Colors.blueAccent)
+      ),
+      child: TextField(
+        controller: textEditingController,
+        decoration: InputDecoration(
+          prefixIcon: Icon(icon),
+          hintText: lable,
+        ),
+        style: TextStyle(fontSize: 20),
       ),
     );
   }

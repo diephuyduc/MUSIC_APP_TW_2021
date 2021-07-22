@@ -16,6 +16,7 @@ import 'features/media_player/plyer_seek_cubit/player_seek_cubit.dart';
 final GetIt serviceLocator = GetIt.instance;
 
 init() async {
+  
   serviceLocator.registerLazySingleton<PlayingRouteCubit>(
     () => PlayingRouteCubit(),
   );

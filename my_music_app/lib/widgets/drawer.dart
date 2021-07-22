@@ -11,7 +11,7 @@ class MPerson extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(20, 50, 20, 20),
         width: MediaQuery.of(context).size.width,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+         
           children: [
             Container(
               alignment: Alignment.center,
@@ -21,10 +21,7 @@ class MPerson extends StatelessWidget {
                 // borderRadius: BorderRadius.circular()
               ),
               height: MediaQuery.of(context).size.width * 0.3,
-              child: Text(
-                textToAvatar(),
-                style: TextStyle(fontSize: 50),
-              ),
+              child: Image.asset('assets/singer.gif'),
             ),
             SizedBox(
               height: 20,

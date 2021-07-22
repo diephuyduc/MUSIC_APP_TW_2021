@@ -43,12 +43,16 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     getCheckNotificationPermStatus();
     super.initState();
-    AudioService.connect();
+    
   }
 
   getCheckNotificationPermStatus() async {
+    
     await Permission.notification.request();
-    print("da dc cap quyen noti");
+    AudioService.connect();
+    AudioService.connect();
+    
+    
   }
 
   @override
