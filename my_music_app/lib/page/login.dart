@@ -28,7 +28,11 @@ class _LoginState extends State<Login> {
                   width: 200,
                   child: Image.asset("assets/music.gif"),
                 ),
-                 Text("Đăng Nhập ứng dụng", style: TextStyle(fontSize: 30),),
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: Text("TTD Music", style: TextStyle(fontSize: 35, color: Colors.red),),),
+                 Text("Đăng nhập ứng dụng", style: TextStyle(fontSize: 30),),
                 mTextfied(
                   "email",
                   Icons.email,

@@ -60,6 +60,9 @@ class _SearchPageState extends State<SearchPage> {
                   setState(() {
                     temp = findByName(value, song);
                     print("day la song load dươc temp: ${temp.length}");
+                    for(int i=0; i<temp.length; i++){
+                      print(temp[i].name);
+                    }
                   });
                 },
               ),
@@ -95,7 +98,7 @@ class _SearchPageState extends State<SearchPage> {
                             TrackLibrary.playList = {};
 
                             TrackLibrary.playList =
-                                convertSongToTrack(songs, index);
+                                convertSongToTrack(songs, 0);
 
                             TrackLibrary.playList.forEach((key, value) {
                               print("$key, ${value.title}");

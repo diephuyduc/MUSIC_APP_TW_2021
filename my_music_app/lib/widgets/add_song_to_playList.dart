@@ -27,8 +27,10 @@ addSongToPlaylist(BuildContext context, String id) {
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       Map result = snapshot.data.data();
-                      print(snapshot.data.data().keys);
-                      List<String> name =
+                      print(result.toString());
+                      if(result != null){
+
+                       List<String> name =
                           convertStringPlayListToName(result.keys.toString());
                       return ListView.builder(
                         itemCount: name.length,
@@ -45,6 +47,11 @@ addSongToPlaylist(BuildContext context, String id) {
                         },
                       );
                     }
+                     else {
+                      return Container();
+                    }
+                    }
+                    
                     return Center(child: CircularProgressIndicator());
                   },
                 ),

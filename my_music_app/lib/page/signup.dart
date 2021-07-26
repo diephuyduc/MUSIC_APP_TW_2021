@@ -26,6 +26,10 @@ class _SignUpState extends State<SignUp> {
                   width: 200,
                   child: Image.asset("assets/music.gif"),
                 ),
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: Text("TTD Music", style: TextStyle(fontSize: 35, color: Colors.red),),),
                 Text("Đăng ký tài khoản", style: TextStyle(fontSize: 30),),
                 mTextfied(
                   "Email",

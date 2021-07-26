@@ -6,6 +6,8 @@ class PlaylistService {
   Stream<DocumentSnapshot> getMyPlaylist() {
     String email = FirebaseAuth.instance.currentUser.email;
     var result = ref.doc(email).snapshots();
+     print("ddaa");
+    print(result);
     return result;
   }
 
